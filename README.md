@@ -1,146 +1,187 @@
 # UI Page Generation Skills
 
-一套专门用来“让 AI 生成好看页面”的 skills。
+Turn vague UI prompts into cleaner, more believable product pages.
 
-解决的问题很简单：
+This repository packages a small skill system for front-end page generation:
 
-👉 一句话生成的前端页面，通常都很丑。
+- one root skill as the main entry
+- one sub-skill for layout and visual structure
+- one sub-skill for natural, product-like copy
 
-这个仓库做的事情是——  
-**强行给模型加一套 UI 设计约束，让输出更像真实产品，而不是练习作品。**
+The goal is simple: make generated pages feel more like shipped software and less like generic AI mockups.
 
----
+## What This Solves
 
-## ✨ 能解决什么问题
+Most raw UI generations fail in predictable ways:
 
-默认的大模型在生成 UI 时有这些问题：
+- weak information hierarchy
+- noisy layouts
+- random component stacking
+- inconsistent visual systems
+- too much decoration
+- AI-sounding headings, buttons, and helper text
 
-- 页面结构混乱
-- 组件堆砌，没有层级
-- 配色随意，看起来很廉价
-- 没有留白，信息密度过高
-- 按钮乱抢视觉焦点
-- 文案一眼 AI 味（空话、套话）
+This repository adds opinionated constraints before the final page is generated.
 
-这套 skills 的目标：
+## Repository Design
 
-👉 **让 AI 生成的页面“像一个已经上线的产品”**
+The repo uses a single main entry skill at the root:
 
----
+- [`SKILL.md`](./SKILL.md)
 
-## 🧠 核心思路
+That root skill acts as an orchestrator and routes work to the specialized skills in [`skills/`](./skills).
 
-不是让模型更“聪明”，而是让它更“受控”。
+## Structure
 
-做了三件事：
+```text
+.
+├── SKILL.md
+├── agents/
+│   └── openai.yaml
+└── skills/
+    ├── ui-page-director/
+    │   ├── SKILL.md
+    │   └── agents/openai.yaml
+    └── product-copy-natural-tone/
+        ├── SKILL.md
+        └── agents/openai.yaml
+```
 
-1. 限制 UI 设计规则（布局 / 间距 / 组件 / 颜色）
-2. 强制先做结构设计，再生成代码
-3. 加一层文案约束，避免 AI 味
+## Skills
 
-本质就是：
+### Main Entry: `ui-page-generation`
 
-> ❌ 自由发挥  
-> ✅ 在设计系统里生成
+The root [`SKILL.md`](./SKILL.md) is the only entry you need to think about first.
 
----
+It is responsible for:
 
-## 📦 项目结构
+- deciding whether a request is a UI/page-generation task
+- routing work to the right sub-skill
+- enforcing the execution order for full-page generation
 
-  
-├── CLAUDE.md  
-├── skills  
-│ ├── ui-page-director  
-│ │ └── SKILL.md  
-│ └── product-copy-natural-tone  
-│ └── SKILL.md
+### Sub-skill: `ui-page-director`
 
----
+Use [`skills/ui-page-director/SKILL.md`](./skills/ui-page-director/SKILL.md) for:
 
-## 🧩 Skills 说明
+- page type classification
+- layout planning
+- information hierarchy
+- component selection
+- restrained visual direction
+- stronger product realism before code generation
 
-### 1. ui-page-director
+### Sub-skill: `product-copy-natural-tone`
 
-负责 UI 的“好不好看”。
+Use [`skills/product-copy-natural-tone/SKILL.md`](./skills/product-copy-natural-tone/SKILL.md) for:
 
-主要做这些事：
+- headings
+- labels
+- buttons
+- helper text
+- empty states
+- onboarding copy
+- landing-page copy
+- cleanup of AI-sounding wording
 
-- 自动补全页面结构（不是只按输入生成）
-- 统一布局规则（栅格 / 间距 / 留白）
-- 限制配色（避免五颜六色）
-- 控制组件组合（避免乱拼）
-- 强制视觉层级
+## How It Works
 
-简单说：
+For most page-generation tasks, the intended flow is:
 
-👉 不让 AI 乱设计
+1. Enter through the root `SKILL.md`.
+2. Apply `ui-page-director` to define structure and visual logic.
+3. Apply `product-copy-natural-tone` to refine visible copy.
+4. Generate the final page or code.
 
----
+If the task is copy-only, the copy skill can be used on its own.
 
-### 2. product-copy-natural-tone
+If the task is layout-only, the UI direction skill can be used on its own.
 
-负责“看起来像不像真人写的”。
+## Example Prompts
 
-解决问题：
+These examples are useful for showing how the repository is meant to be used.
 
-- 文案太 AI
-- 全是空话
-- 标题像 PPT
-- 按钮文案不自然
+### Full Page Generation
 
-约束方向：
+```text
+Use $ui-page-generation to build a SaaS analytics dashboard for a video localization tool.
+The page should feel clean, credible, and ready for a real product.
+```
 
-- 更短
-- 更具体
-- 更像真实产品
-- 不写“赋能 / 重塑 / 全链路”这种话
+### Landing Page
 
----
+```text
+Use $ui-page-generation to design a landing page for an AI meeting assistant.
+Keep the layout restrained and make the copy sound like a real startup site, not a hype page.
+```
 
-## 🧪 使用方式
+### Layout-Only Improvement
 
-适用于：
+```text
+Use $ui-page-director to improve the structure of this settings page.
+Reduce clutter, create a clearer hierarchy, and keep the UI commercially believable.
+```
 
-- Claude / GPT / 自研 Agent
-- 自动生成前端页面
-- UI 原型生成
-- SaaS 后台 / 工具类产品
+### Copy-Only Improvement
 
-### 推荐用法
+```text
+Use $product-copy-natural-tone to rewrite these dashboard headings, buttons, and empty states.
+Remove AI filler and make the wording feel product-native.
+```
 
-把 `CLAUDE.md` 作为 system prompt：
+## Installation
 
-然后加载对应 skill。
+Place this repository where your skill system can read it, or copy the root skill and the `skills/` directory into your local skills workspace.
 
----
+If you are using a Codex-style local skill setup, the important files are:
 
-## 📸 适用场景
+- root `SKILL.md`
+- root `agents/openai.yaml`
+- all skill folders inside `skills/`
 
-- SaaS 后台
-- AI 工具页面
-- 数据看板
-- 官网落地页
-- 桌面端应用 UI
-- 内部管理系统
+## Why A Root Skill
 
----
+Without a main entry, multi-skill repositories are harder to use consistently.
 
-## 🚫 不适用场景
+The root skill solves that by:
 
-这套东西不适合：
+- giving the repo one obvious entry point
+- making routing explicit
+- keeping sub-skills focused and reusable
+- reducing ambiguity for future maintenance
 
-- 强品牌视觉（设计师主导的官网）
-- 游戏 UI
-- 高度视觉创意类页面
+## Design Principles
 
----
+This repository is biased toward:
 
-## 📌 设计原则（总结版）
+- design before code
+- simple, commercially realistic page structure
+- restrained visual systems
+- consistency over novelty
+- product-like copy instead of AI-flavored language
 
-- 少即是多
-- 留白优先
-- 层级清晰
-- 组件统一
-- 配色克制
-- 文案真实
+## Good Fit
 
+- SaaS dashboards
+- AI tool workspaces
+- internal tools
+- analytics pages
+- settings pages
+- landing pages
+- data-heavy interfaces
+
+## Not The Best Fit
+
+- highly experimental visual design
+- game UI
+- brand-led art direction work
+- intentionally loud or novelty-first layouts
+
+## Status
+
+This repository is organized as a standard skill set with:
+
+- a valid root skill
+- valid sub-skills
+- per-skill `agents/openai.yaml` metadata
+
+You can keep extending it by adding more specialized skills under `skills/` while preserving the root entry pattern.

@@ -1,0 +1,4 @@
+interface:
+  display_name: "UI Page Director"
+  short_description: "Plan strong page structure before front-end UI generation"
+  default_prompt: "Use $ui-page-director to turn this product prompt into a believable page plan and UI implementation."

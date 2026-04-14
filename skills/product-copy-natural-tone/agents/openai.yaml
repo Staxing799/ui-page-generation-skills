@@ -1,0 +1,4 @@
+interface:
+  display_name: "Natural Product Copy"
+  short_description: "Keep UI copy concise, grounded, and product-like"
+  default_prompt: "Use $product-copy-natural-tone to rewrite this UI copy so it sounds natural and product-native."

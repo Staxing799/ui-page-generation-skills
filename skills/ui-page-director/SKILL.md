@@ -1,152 +1,101 @@
+---
 name: ui-page-director
-description: Generate front-end pages that look commercially polished by enforcing page-type detection, information hierarchy, restrained visual systems, realistic layouts, and product-grade UI decisions before code generation.
-license: MIT
+description: Plan and generate commercially believable UI pages before writing code. Use when Codex needs to turn a short product prompt into a landing page, dashboard, app screen, settings page, workspace, analytics view, table page, or other front-end interface with strong hierarchy, restrained styling, and realistic product structure.
+---
 
 # UI Page Director
 
-Use this skill when the user wants to generate a website page, dashboard, landing page, app screen, desktop UI, or front-end interface from a short prompt.
+Classify the page before generating code.
 
-This skill exists to prevent ugly AI-generated UI caused by vague structure, weak hierarchy, bad spacing, noisy color choices, and generic component dumping.
-
-## Core Objective
-
-Generate pages that feel like real shipped products:
-
-- clean
-- modern
-- restrained
-- structured
-- believable
-- visually strong without being flashy
-
-## 1. Decide the Page Type First
-
-Before writing code, classify the request into one of these:
+Pick the closest page type:
 
 - landing page
 - marketing site
 - SaaS dashboard
-- AI tool workspace
+- AI workspace
 - settings page
 - data table page
-- form flow
 - analytics page
-- desktop app workspace
+- form flow
 - content management page
+- desktop app workspace
 
-Then optimize layout for that page type rather than using a generic template.
+State the primary user goal in one sentence and let that goal drive layout decisions.
 
-## 2. Build a Real Information Hierarchy
+Plan the information hierarchy before picking components.
 
-Always define:
+Define:
 
-- primary user goal
 - primary action
 - secondary actions
 - high-priority content
 - supporting content
 - optional content that can be omitted
 
-If everything looks equally important, the hierarchy is wrong.
+Prefer a durable layout skeleton instead of a generic block stack.
 
-## 3. Use a Reliable Layout Skeleton
-
-Prefer durable structures such as:
+Use patterns such as:
 
 - top navigation + hero + supporting sections for landing pages
-- sidebar + top bar + main workspace for tools and dashboards
-- centered form shell with grouped sections for forms
-- summary row + filters + main table + detail view for management pages
+- sidebar + top bar + main workspace for dashboards and tools
+- centered shell with grouped sections for forms
+- summary row + filters + table + detail panel for management pages
 
-Do not stack unrelated blocks just to make the page feel fuller.
-
-## 4. Enforce a Professional Visual System
+Keep the visual system restrained and consistent.
 
 Default style rules:
 
 - high whitespace
-- restrained palette
+- mostly neutral surfaces
 - one primary accent color
-- neutral backgrounds
-- medium-to-large radius consistency
-- light shadows or subtle borders
-- clean icon style
-- 4-6 typography levels maximum
+- medium or large radius used consistently
+- subtle borders or light shadows
+- four to six typography levels at most
+- one icon style and one density level across the page
 
 Avoid:
 
 - rainbow accents
-- heavy borders
 - thick shadows
-- oversaturated gradients
+- heavy borders
+- cramped layouts
 - inconsistent radii
-- random font sizing
+- decorative sections with no product logic
 
-## 5. Prefer Better Component Composition
+Compose a small, coherent component set.
 
-Use a limited, coherent set of components:
+Prefer:
 
-- cards
-- tabs
-- tables
-- filters
-- search
-- drawers
-- modals
-- stat blocks
-- empty states
-- toast feedback
-- grouped forms
+- cards for distinct topics
+- tabs for limited view switching
+- filters and search for dense data pages
+- grouped forms with clear section titles
+- stat blocks only for the few metrics that matter
+- empty, loading, and error states that fit the page
 
-Rules:
+Do not turn the page into a component showroom.
 
-- one card should represent one topic
-- one page should have one strongest CTA
-- tables should look breathable, not cramped
-- forms should be grouped and easy to scan
-- stats should be limited to the few that matter
+Keep one strongest call to action. Let supporting actions stay visually secondary.
 
-## 6. Make It Feel Designed, Not Assembled
+Add polish through structure and restraint.
 
-Add polish through restraint:
+Improve:
 
-- clearer section rhythm
-- better alignment
-- better whitespace balance
-- fewer but stronger emphasis points
-- realistic empty and loading states
-- concise labels and helper text
+- spacing rhythm
+- alignment
+- section pacing
+- emphasis hierarchy
+- label clarity
+- realistic placeholder and empty states
 
-Do not add polish by piling on visual effects.
+Do not add polish by piling on effects.
 
-## 7. What to Avoid
+Before finalizing, review this checklist:
 
-Never generate pages that feel like:
-
-- a low-end admin template
-- a Dribbble shot with no product logic
-- a crowded no-whitespace dashboard
-- a component showroom
-- a generic AI-generated hero with empty buzzwords
-
-## 8. Output Sequence
-
-When responding, use this sequence internally before code:
-
-1. Identify page type.
-2. Choose visual direction.
-3. Plan section structure.
-4. Select the smallest useful component set.
-5. Ensure copy can sound like a real product.
-6. Generate final UI.
-
-## 9. Final Review Checklist
-
-Before finalizing, confirm:
-
-- Clear focal point
-- Consistent spacing
-- Consistent component language
-- Realistic structure for the requested product type
-- Minimal visual noise
-- Stronger design than default AI page generation
+- page type is clear
+- focal point is obvious
+- structure matches the product context
+- spacing feels breathable
+- component language is consistent
+- visual noise is low
+- result feels like a shipped product, not a template dump

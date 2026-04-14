@@ -1,73 +1,51 @@
+---
 name: product-copy-natural-tone
-description: Keep UI copy natural, grounded, and product-like by removing heavy AI tone, generic marketing filler, and exaggerated language from headings, buttons, labels, helper text, and empty states.
-license: MIT
+description: Write UI and product copy that sounds natural, concise, and commercially believable. Use when Codex needs headings, buttons, labels, helper text, empty states, onboarding copy, or landing-page copy without AI filler, inflated claims, or generic marketing language.
+---
 
 # Product Copy Natural Tone
 
-Use this skill when generating interface copy for websites, apps, dashboards, landing pages, onboarding, settings pages, dialogs, empty states, and forms.
+Write copy that sounds like a real product team wrote it.
 
-Its job is simple: make the words sound like a real product team wrote them, not an AI model.
-
-## Core Standard
-
-Every piece of UI copy should feel:
-
-- specific
-- concise
-- useful
-- calm
-- human
-- commercially believable
-
-## 1. Default Tone
-
-Use a tone that is:
+Keep the tone:
 
 - direct
 - clear
-- mildly polished
-- low-drama
-- confident without exaggeration
+- concise
+- calm
+- useful
+- confident without hype
 
-Do not sound overexcited, poetic, futuristic, or motivational unless the user explicitly wants that style.
+Remove language that sounds inflated, motivational, futuristic, or vaguely "AI branded" unless the user explicitly asks for it.
 
-## 2. Ban Common AI-Sounding Patterns
-
-Avoid phrases like:
+Avoid filler such as:
 
 - empower your workflow
 - unlock creativity
 - elevate your experience
 - transform the way you work
-- seamless end-to-end solution
 - next-generation platform
 - intelligent insights at your fingertips
 - all-in-one innovation engine
 - streamline everything with AI
 
-Also avoid long headings that say very little.
+Prefer concrete wording over slogans.
 
-## 3. Prefer Concrete Wording
+Bad patterns:
 
-Bad:
+- long headings that say little
+- vague value statements
+- buttons that sound clever instead of clear
+- helper text that narrates the obvious
+- empty states that over-explain
 
-- Reimagine your creative workflow
-- Unlock powerful intelligent automation
-- Supercharge your next step
+Prefer short, actionable wording.
 
-Better:
+For buttons:
 
-- Edit clips faster
-- Review issues before export
-- Generate subtitles and fix timing
-
-## 4. UI Copy Rules by Context
-
-### Buttons
-
-- Keep buttons short.
-- Use action verbs.
-- Prefer obvious meaning over cleverness.
+- use a clear verb
+- keep the label short
+- optimize for obvious meaning
 
 Examples:
 
@@ -77,63 +55,47 @@ Examples:
 - Review issues
 - Generate draft
 
-### Headings
+For headings:
 
-- Say what the page is for.
-- Avoid slogan-style copy unless it is a marketing hero.
-- Prefer concrete nouns and verbs.
+- say what the page or section is for
+- prefer concrete nouns and verbs
+- use slogan-style copy only for deliberate marketing hero sections
 
-### Helper Text
+For helper text:
 
-- Explain only what helps the user act.
-- Keep it factual.
-- Do not narrate obvious things.
+- explain only what helps the user act
+- keep it factual
+- remove obvious narration
 
-### Empty States
+For empty states:
 
-- State what is missing.
-- Say what the user can do next.
-- Do not over-write.
+- say what is missing
+- say what the user can do next
+- keep the message brief
 
 Example:
 
 - No projects yet
 - Create your first project to start processing videos.
 
-## 5. Marketing Copy Still Needs Restraint
+For landing-page copy:
 
-For landing pages, copy can be more polished, but must still stay grounded.
+- keep promises believable
+- prefer concrete outcomes
+- mention real features instead of abstract transformation
+- stay polished without sounding loud
 
-Prefer:
+When writing Chinese UI copy, apply the same standard:
 
-- clear value
-- concrete outcomes
-- believable promises
-- specific feature language
+- keep sentences short
+- prefer plain product language
+- avoid empty buzzwords and official-sounding phrasing
+- make buttons and headings read like real shipped software
 
-Avoid:
+Before finalizing, review this checklist:
 
-- hype
-- vague transformation language
-- inflated claims
-- empty emotional slogans
-
-## 6. Chinese Copy Guidance
-
-If writing Chinese UI copy:
-
-- 优先用短句
-- 少用“赋能、重塑、全链路、全场景、智能化升级”这类空泛词
-- 标题尽量像真实产品页面，不像招商文案
-- 按钮文案要直接，比如“新建项目”“导出视频”“查看问题”
-- 提示语要自然，不要官话，不要 AI 腔
-
-## 7. Final Review Checklist
-
-Before finalizing copy, verify:
-
-- Could this appear in a real product today?
-- Is it shorter than the AI-ish version?
-- Does it avoid buzzwords?
-- Does it help the user act?
-- Does it sound human-written?
+- copy could appear in a real product today
+- wording is shorter than the AI-heavy version
+- buzzwords are removed
+- each line helps the user act or understand
+- tone sounds human-written and product-native

@@ -1,0 +1,4 @@
+interface:
+  display_name: "UI Page Generation"
+  short_description: "Main entry skill that coordinates UI layout and product copy"
+  default_prompt: "Use $ui-page-generation to plan and generate a believable product UI from this prompt."
