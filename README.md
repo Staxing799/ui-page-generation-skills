@@ -46,12 +46,13 @@
 ---
 
 ## 📦 项目结构
-.
-├── CLAUDE.md
-├── skills
-│ ├── ui-page-director
-│ │ └── SKILL.md
-│ └── product-copy-natural-tone
+
+  
+├── CLAUDE.md  
+├── skills  
+│ ├── ui-page-director  
+│ │ └── SKILL.md  
+│ └── product-copy-natural-tone  
 │ └── SKILL.md
 
 ---
@@ -143,20 +144,3 @@
 - 配色克制
 - 文案真实
 
----
-
-## ⚠️ 一句话结论
-
-如果你不限制模型：
-
-👉 它会给你一个“能用但很丑”的页面
-
-如果你用了这套 skills：
-
-👉 至少不会丑，很多时候还能接近可用产品
-
----
-
-## 📄 License
-
-MIT
