@@ -1,23 +1,162 @@
 # UI Page Generation Skills
 
-A lightweight skill folder inspired by the structure used in `forrestchang/andrej-karpathy-skills`:
+一套专门用来“让 AI 生成好看页面”的 skills。
 
-- `CLAUDE.md` at the repo root
-- `skills/<skill-name>/SKILL.md`
-- optional `.claude-plugin/` directory placeholder
+解决的问题很简单：
 
-## Included skills
+👉 一句话生成的前端页面，通常都很丑。
 
-- `ui-page-director`: forces stronger UI structure and better visual decisions before code generation
-- `product-copy-natural-tone`: removes heavy AI tone from UI copy and keeps product text grounded
+这个仓库做的事情是——  
+**强行给模型加一套 UI 设计约束，让输出更像真实产品，而不是练习作品。**
 
-## Suggested usage
+---
 
-Put this folder into your project, then let your coding agent load the root `CLAUDE.md` and the skills under `skills/`.
+## ✨ 能解决什么问题
 
-Use both skills together when you want:
+默认的大模型在生成 UI 时有这些问题：
 
-- one-sentence page generation
-- better visual hierarchy
-- less template-like UI
-- less AI-sounding copy
+- 页面结构混乱
+- 组件堆砌，没有层级
+- 配色随意，看起来很廉价
+- 没有留白，信息密度过高
+- 按钮乱抢视觉焦点
+- 文案一眼 AI 味（空话、套话）
+
+这套 skills 的目标：
+
+👉 **让 AI 生成的页面“像一个已经上线的产品”**
+
+---
+
+## 🧠 核心思路
+
+不是让模型更“聪明”，而是让它更“受控”。
+
+做了三件事：
+
+1. 限制 UI 设计规则（布局 / 间距 / 组件 / 颜色）
+2. 强制先做结构设计，再生成代码
+3. 加一层文案约束，避免 AI 味
+
+本质就是：
+
+> ❌ 自由发挥  
+> ✅ 在设计系统里生成
+
+---
+
+## 📦 项目结构
+.
+├── CLAUDE.md
+├── skills
+│ ├── ui-page-director
+│ │ └── SKILL.md
+│ └── product-copy-natural-tone
+│ └── SKILL.md
+
+---
+
+## 🧩 Skills 说明
+
+### 1. ui-page-director
+
+负责 UI 的“好不好看”。
+
+主要做这些事：
+
+- 自动补全页面结构（不是只按输入生成）
+- 统一布局规则（栅格 / 间距 / 留白）
+- 限制配色（避免五颜六色）
+- 控制组件组合（避免乱拼）
+- 强制视觉层级
+
+简单说：
+
+👉 不让 AI 乱设计
+
+---
+
+### 2. product-copy-natural-tone
+
+负责“看起来像不像真人写的”。
+
+解决问题：
+
+- 文案太 AI
+- 全是空话
+- 标题像 PPT
+- 按钮文案不自然
+
+约束方向：
+
+- 更短
+- 更具体
+- 更像真实产品
+- 不写“赋能 / 重塑 / 全链路”这种话
+
+---
+
+## 🧪 使用方式
+
+适用于：
+
+- Claude / GPT / 自研 Agent
+- 自动生成前端页面
+- UI 原型生成
+- SaaS 后台 / 工具类产品
+
+### 推荐用法
+
+把 `CLAUDE.md` 作为 system prompt：
+
+然后加载对应 skill。
+
+---
+
+## 📸 适用场景
+
+- SaaS 后台
+- AI 工具页面
+- 数据看板
+- 官网落地页
+- 桌面端应用 UI
+- 内部管理系统
+
+---
+
+## 🚫 不适用场景
+
+这套东西不适合：
+
+- 强品牌视觉（设计师主导的官网）
+- 游戏 UI
+- 高度视觉创意类页面
+
+---
+
+## 📌 设计原则（总结版）
+
+- 少即是多
+- 留白优先
+- 层级清晰
+- 组件统一
+- 配色克制
+- 文案真实
+
+---
+
+## ⚠️ 一句话结论
+
+如果你不限制模型：
+
+👉 它会给你一个“能用但很丑”的页面
+
+如果你用了这套 skills：
+
+👉 至少不会丑，很多时候还能接近可用产品
+
+---
+
+## 📄 License
+
+MIT
